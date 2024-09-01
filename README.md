@@ -1,0 +1,2 @@
+# cpputils
+C++ utility classes.
