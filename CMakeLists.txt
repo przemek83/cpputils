@@ -22,13 +22,13 @@ include(CMakePackageConfigHelpers)
 
 set(${PROJECT_NAME}_SOURCES
     src/StreamEater.cpp
-    src/cpputils_global.h
 )
 
 set(PUBLIC_HEADERS
     include/${PROJECT_NAME}/StreamEater.h
     include/${PROJECT_NAME}/Logger.h
     include/${PROJECT_NAME}/Timer.h
+    include/${PROJECT_NAME}/cpputils_global.h
 )
 
 add_library(${PROJECT_NAME} ${${PROJECT_NAME}_SOURCES})
