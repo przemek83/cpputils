@@ -18,23 +18,27 @@ if(CODE_COVERAGE)
 endif()
 
 include(GNUInstallDirs)
+include(CMakePackageConfigHelpers)
 
 set(${PROJECT_NAME}_SOURCES
-    src/cpputils_global.h
     src/StreamEater.cpp
-    src/StreamEater.h
-    src/Logger.h
-    src/Timer.h
 )
 
 set(PUBLIC_HEADERS
-    src/cpputils_global.h
-    src/StreamEater.h
-    src/Logger.h
-    src/Timer.h
+    include/cpputils_global.h
+    include/StreamEater.h
+    include/Logger.h
+    include/Timer.h
 )
 
 add_library(${PROJECT_NAME} ${${PROJECT_NAME}_SOURCES})
+
+target_include_directories(${PROJECT_NAME}
+  PUBLIC
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+  PRIVATE
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src>)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
     VERSION ${PROJECT_VERSION}
@@ -43,7 +47,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 
 configure_file(${PROJECT_NAME}.pc.in ${PROJECT_NAME}.pc @ONLY)
 
-target_include_directories(${PROJECT_NAME} PRIVATE .)
+# target_include_directories(${PROJECT_NAME} PRIVATE src)
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE CPPUTILS_LIBRARY)
 
