@@ -3,7 +3,7 @@
 #include <chrono>
 
 #include "Logger.h"
-#include "cpputils_global.h"
+#include "cpputils/cpputils_global.h"
 
 template <typename T>
 class CPPUTILS_API Timer

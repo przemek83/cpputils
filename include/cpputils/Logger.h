@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "cpputils_global.h"
+#include "cpputils/cpputils_global.h"
 
 class CPPUTILS_API Logger
 {

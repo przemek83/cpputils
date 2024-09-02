@@ -3,7 +3,7 @@
 #include <iostream>
 #include <sstream>
 
-#include "cpputils_global.h"
+#include "cpputils/cpputils_global.h"
 
 class CPPUTILS_API StreamEater
 {
