@@ -25,17 +25,17 @@ set(${PROJECT_NAME}_SOURCES
 )
 
 set(PUBLIC_HEADERS
-    include/cpputils_global.h
-    include/StreamEater.h
-    include/Logger.h
-    include/Timer.h
+    include/${PROJECT_NAME}/cpputils_global.h
+    include/${PROJECT_NAME}/StreamEater.h
+    include/${PROJECT_NAME}/Logger.h
+    include/${PROJECT_NAME}/Timer.h
 )
 
 add_library(${PROJECT_NAME} ${${PROJECT_NAME}_SOURCES})
 
 target_include_directories(${PROJECT_NAME}
   PUBLIC
-    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include/${PROJECT_NAME}>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
   PRIVATE
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src>)
