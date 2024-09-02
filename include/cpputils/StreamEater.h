@@ -14,6 +14,6 @@ public:
     std::string getOutput() const;
 
 private:
-    class Impl;
+    class CPPUTILS_API Impl;
     std::unique_ptr<Impl> pImpl_;
 };
