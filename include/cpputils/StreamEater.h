@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include <sstream>
+#include <memory>
 
 #include "cpputils/cpputils_global.h"
 
@@ -9,13 +9,10 @@ class CPPUTILS_API StreamEater
 {
 public:
     explicit StreamEater(std::ostream& stream);
-    ~StreamEater();
 
     std::string getOutput() const;
 
 private:
-    std::ostream& stream_;
-
-    std::streambuf* stdBuffer_{stream_.rdbuf()};
-    std::ostringstream fakeOutput_;
+    class Impl;
+    std::unique_ptr<Impl> pImpl_;
 };
