@@ -22,10 +22,10 @@ include(CMakePackageConfigHelpers)
 
 set(${PROJECT_NAME}_SOURCES
     src/StreamEater.cpp
+    src/cpputils_global.h
 )
 
 set(PUBLIC_HEADERS
-    include/${PROJECT_NAME}/cpputils_global.h
     include/${PROJECT_NAME}/StreamEater.h
     include/${PROJECT_NAME}/Logger.h
     include/${PROJECT_NAME}/Timer.h
@@ -47,15 +47,13 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 
 configure_file(${PROJECT_NAME}.pc.in ${PROJECT_NAME}.pc @ONLY)
 
-# target_include_directories(${PROJECT_NAME} PRIVATE src)
-
 target_compile_definitions(${PROJECT_NAME} PRIVATE CPPUTILS_LIBRARY)
 
 install(TARGETS ${PROJECT_NAME} 
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME})
 
 install(FILES ${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pc
     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig)
