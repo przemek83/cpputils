@@ -1,4 +1,4 @@
-#include "StreamEater.h"
+#include "cpputils/StreamEater.h"
 
 StreamEater::StreamEater(std::ostream& stream) : stream_(stream)
 {
