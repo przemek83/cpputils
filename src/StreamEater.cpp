@@ -31,4 +31,6 @@ StreamEater::StreamEater(std::ostream& stream) : pImpl_(std::make_unique<Impl>(s
 {
 }
 
+StreamEater::~StreamEater() = default;
+
 std::string StreamEater::getOutput() const { return pImpl_->getOutput(); }

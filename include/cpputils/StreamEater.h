@@ -9,6 +9,7 @@ class CPPUTILS_API StreamEater
 {
 public:
     explicit StreamEater(std::ostream& stream);
+    ~StreamEater();
 
     std::string getOutput() const;
 
