@@ -22,6 +22,7 @@ include(CMakePackageConfigHelpers)
 
 set(${PROJECT_NAME}_SOURCES
     src/StreamEater.cpp
+    src/Logger.cpp
 )
 
 set(PUBLIC_HEADERS
