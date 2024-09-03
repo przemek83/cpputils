@@ -7,11 +7,11 @@
 
 class StreamEaterImpl;
 
-class CPPUTILS_API StreamEater
+class StreamEater
 {
 public:
-    explicit StreamEater(std::ostream& stream);
-    ~StreamEater();
+    CPPUTILS_API explicit StreamEater(std::ostream& stream);
+    CPPUTILS_API ~StreamEater();
 
     std::string getOutput() const;
 
