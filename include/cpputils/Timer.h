@@ -7,21 +7,21 @@
 #include "cpputils/cpputils_global.h"
 
 template <typename T>
-class CPPUTILS_API Timer
+class Timer
 {
 public:
-    Timer();
-    ~Timer();
+    CPPUTILS_API Timer();
+    CPPUTILS_API ~Timer();
 
 private:
     static std::string getSuffix();
 
-    class CPPUTILS_API Impl;
+    class Impl;
     std::unique_ptr<Impl> pImpl_;
 };
 
 template <typename T>
-class CPPUTILS_API Timer<T>::Impl
+class Timer<T>::Impl
 {
 public:
     Impl();
