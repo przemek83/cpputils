@@ -16,7 +16,7 @@ public:
 private:
     static std::string getSuffix();
 
-    class Impl;
+    class CPPUTILS_API Impl;
     std::unique_ptr<Impl> pImpl_;
 };
 
