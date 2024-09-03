@@ -5,6 +5,8 @@
 
 #include "cpputils/cpputils_global.h"
 
+class StreamEaterImpl;
+
 class CPPUTILS_API StreamEater
 {
 public:
@@ -14,6 +16,5 @@ public:
     std::string getOutput() const;
 
 private:
-    class CPPUTILS_API Impl;
-    std::unique_ptr<Impl> pImpl_;
+    std::unique_ptr<StreamEaterImpl> pImpl_;
 };
