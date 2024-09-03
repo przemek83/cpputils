@@ -7,6 +7,8 @@
 class CPPUTILS_API Logger
 {
 public:
-    void logMsg(const std::string& message) const;
-    void logErr(const std::string& errorMessage) const;
+    void info(const std::string& msg) const;
+    void error(const std::string& msg) const;
 };
+
+Logger log();

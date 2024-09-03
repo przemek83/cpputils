@@ -27,8 +27,8 @@ Timer::Timer(Duration duration)
 Timer::~Timer()
 {
     const long executionTime{getExecutionTime()};
-    Logger().logMsg("Execution time: " + std::to_string(executionTime) +
-                    getSuffix(duration_));
+    log().info("Execution time: " + std::to_string(executionTime) +
+               getSuffix(duration_));
 }
 
 std::string Timer::getSuffix(Duration duration)

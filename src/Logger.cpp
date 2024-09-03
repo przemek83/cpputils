@@ -3,14 +3,16 @@
 
 #include <iostream>
 
-void Logger::logMsg(const std::string& message) const
+void Logger::info(const std::string& msg) const
 {
-    std::cout << message << "\n";
+    std::cout << msg << "\n";
     std::cout.flush();
 }
 
-void Logger::logErr(const std::string& errorMessage) const
+void Logger::error(const std::string& msg) const
 {
-    std::cerr << errorMessage << "\n";
+    std::cerr << msg << "\n";
     std::cerr.flush();
 }
+
+Logger log() { return Logger{}; }

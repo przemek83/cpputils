@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
 {
     Timer timer{Timer::Duration::MICROSECONDS};
 
-    Logger().logMsg("My message");
+    log().info("My message");
 
     std::string eaten;
     {
