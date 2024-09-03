@@ -5,7 +5,7 @@ Library `cpputils` is a collection of utility classes designed to simplify commo
 # Features
 - **Logger**: A simple logging class to output messages to the console.
 - **StreamEater**: A class to capture and manipulate stream output.
-- **Timer**: A class template to measure execution time in various time units.
+- **Timer**: A class to measure execution time in various time units.
 
 # Building
 Clone and use CMake directly or via any IDE supporting it. CMake **should**:
