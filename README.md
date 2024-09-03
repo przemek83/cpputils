@@ -12,7 +12,7 @@ Clone and use CMake directly or via any IDE supporting it. CMake **should**:
 + configure everything automatically,
 + compile and create binaries.
 
-As a result of compilation, library binary and binary with examples should be created. Library can be used as shared or static one. For shared library use on Windows, define `CPPUTILS_SHARED_LIB`. Check `include/cpputils/dll.h` for more details.
+As a result of compilation, library binary and binary with examples should be created. Library can be used as a shared or static one. For shared library use on Windows, define `CPPUTILS_SHARED_LIB`. Check `include/cpputils/dll.h` for more details.
 
 ## Used tools
 | Tool |  Windows | Ubuntu |
@@ -23,7 +23,7 @@ As a result of compilation, library binary and binary with examples should be cr
 | Git | 2.46.0 | 2.43.0 |
 
 # Usage
-One of ways is to include in project file `CMakeLists.txt.cpputils` containing:
+One of the ways is to include in project file `CMakeLists.txt.cpputils` containing:
 ```
 include(FetchContent)
 
@@ -39,11 +39,11 @@ and adding in `CMakeLists.txt`:
 ```
 include(CMakeLists.txt.cpputils)
 ```
-From this point onwards it should be possible to use `cpputils` as link library:
+From this point onwards, it should be possible to use `cpputils` as a link library:
 ```
 target_link_libraries(${PROJECT_NAME} cpputils)
 ```
-Check examples subproject and my other project named `data-explorer` for usage examples.
+Check the examples subproject and my other project named `data-explorer` for usage examples.
 
 ## Logger
 
