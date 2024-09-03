@@ -25,6 +25,7 @@ set(${PROJECT_NAME}_SOURCES
     src/Logger.cpp
     src/StreamEaterImpl.h
     src/StreamEaterImpl.cpp
+    src/Timer.cpp
 )
 
 set(PUBLIC_HEADERS
