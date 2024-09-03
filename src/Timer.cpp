@@ -1,5 +1,7 @@
 #include "cpputils/Timer.h"
+
 #include <chrono>
+#include <cmath>
 
 #include "TimerImpl.h"
 #include "cpputils/Logger.h"
@@ -13,7 +15,7 @@ long calculateTime(std::chrono::time_point<std::chrono::steady_clock> start)
     const std::chrono::duration<double> duration{end - start};
     auto executionTime{std::chrono::duration_cast<T>(duration).count()};
 
-    return executionTime;
+    return std::lrint(executionTime);
 }
 }  // namespace
 
