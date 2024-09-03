@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <chrono>
 #include <iostream>
 
 #include "cpputils/Logger.h"
@@ -8,7 +7,7 @@
 
 int main(int argc, char* argv[])
 {
-    Timer<std::chrono::microseconds> timer;
+    Timer timer{Timer::Duration::MICROSECONDS};
 
     Logger().logMsg("My message");
 

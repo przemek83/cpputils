@@ -26,6 +26,8 @@ set(${PROJECT_NAME}_SOURCES
     src/StreamEaterImpl.h
     src/StreamEaterImpl.cpp
     src/Timer.cpp
+    src/TimerImpl.h
+    src/TimerImpl.cpp
 )
 
 set(PUBLIC_HEADERS

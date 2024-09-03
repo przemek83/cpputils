@@ -1,51 +1,64 @@
 #include "cpputils/Timer.h"
+#include <chrono>
 
+#include "TimerImpl.h"
 #include "cpputils/Logger.h"
 
-template <typename T>
-Timer<T>::Timer() : pImpl_(std::make_unique<Impl>())
+namespace
 {
-}
-
 template <typename T>
-Timer<T>::~Timer()
+long calculateTime(std::chrono::time_point<std::chrono::steady_clock> start)
 {
     const std::chrono::time_point end{std::chrono::steady_clock::now()};
-    const std::chrono::duration<double> duration{end - pImpl_->start_};
-    const auto executionTime{std::chrono::duration_cast<T>(duration).count()};
+    const std::chrono::duration<double> duration{end - start};
+    long executionTime{std::chrono::duration_cast<T>(duration).count()};
+
+    return executionTime;
+}
+}  // namespace
+
+Timer::Timer(Duration duration)
+    : duration_{duration}, pImpl_(std::make_unique<TimerImpl>())
+{
+}
+
+Timer::~Timer()
+{
+    const long executionTime{getExecutionTime()};
     Logger().logMsg("Execution time: " + std::to_string(executionTime) +
-                    pImpl_->suffix_);
+                    getSuffix(duration_));
 }
 
-template <typename T>
-Timer<T>::Impl::Impl()
-    : start_(std::chrono::steady_clock::now()), suffix_(Timer<T>::getSuffix())
+std::string Timer::getSuffix(Duration duration)
 {
-}
-
-template <typename T>
-Timer<T>::Impl::~Impl() = default;
-
-template <typename T>
-std::string Timer<T>::getSuffix()
-{
-    if (std::is_same_v<T, std::chrono::hours>)
+    if (duration == Duration::HOURS)
         return "h";
-    else if (std::is_same_v<T, std::chrono::minutes>)
+    else if (duration == Duration::MINUTES)
         return "min";
-    else if (std::is_same_v<T, std::chrono::seconds>)
+    else if (duration == Duration::SECONDS)
         return "s";
-    else if (std::is_same_v<T, std::chrono::milliseconds>)
+    else if (duration == Duration::MILISECONDS)
         return "ms";
-    else if (std::is_same_v<T, std::chrono::microseconds>)
+    else if (duration == Duration::MICROSECONDS)
         return "us";
     else
         return "ns";
 }
 
-// Explicit instantiation definitions
-template class CPPUTILS_API Timer<std::chrono::microseconds>;
-template class CPPUTILS_API Timer<std::chrono::milliseconds>;
-template class CPPUTILS_API Timer<std::chrono::seconds>;
-template class CPPUTILS_API Timer<std::chrono::minutes>;
-template class CPPUTILS_API Timer<std::chrono::hours>;
+long Timer::getExecutionTime() const
+{
+    const std::chrono::time_point start{pImpl_->getStart()};
+
+    if (duration_ == Duration::HOURS)
+        return calculateTime<std::chrono::hours>(start);
+    else if (duration_ == Duration::MINUTES)
+        return calculateTime<std::chrono::minutes>(start);
+    else if (duration_ == Duration::SECONDS)
+        return calculateTime<std::chrono::seconds>(start);
+    else if (duration_ == Duration::MILISECONDS)
+        return calculateTime<std::chrono::milliseconds>(start);
+    else if (duration_ == Duration::MICROSECONDS)
+        return calculateTime<std::chrono::microseconds>(start);
+    else
+        return calculateTime<std::chrono::nanoseconds>(start);
+}
