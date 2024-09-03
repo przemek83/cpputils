@@ -11,7 +11,7 @@ long calculateTime(std::chrono::time_point<std::chrono::steady_clock> start)
 {
     const std::chrono::time_point end{std::chrono::steady_clock::now()};
     const std::chrono::duration<double> duration{end - start};
-    long executionTime{std::chrono::duration_cast<T>(duration).count()};
+    auto executionTime{std::chrono::duration_cast<T>(duration).count()};
 
     return executionTime;
 }
