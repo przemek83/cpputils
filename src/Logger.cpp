@@ -14,5 +14,3 @@ void Logger::error(const std::string& msg) const
     std::cerr << msg << "\n";
     std::cerr.flush();
 }
-
-Logger log() { return Logger{}; }

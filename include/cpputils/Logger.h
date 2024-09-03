@@ -11,4 +11,4 @@ public:
     void error(const std::string& msg) const;
 };
 
-Logger log();
+using Log = Logger;

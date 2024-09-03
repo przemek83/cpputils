@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
 {
     const Timer timer{Timer::Duration::MICROSECONDS};
 
-    log().info("My message");
+    Log().info("My message");
 
     const std::string eaten{eatingExample()};
     std::cout << "Eaten: " << eaten;
