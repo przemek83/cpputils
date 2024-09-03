@@ -58,3 +58,5 @@ install(TARGETS ${PROJECT_NAME}
 
 install(FILES ${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pc
     DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/pkgconfig)
+
+add_subdirectory(examples)
