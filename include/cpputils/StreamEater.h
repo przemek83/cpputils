@@ -3,7 +3,7 @@
 #include <iostream>
 #include <memory>
 
-#include "cpputils/cpputils_global.h"
+#include "cpputils/dll.h"
 
 class StreamEaterImpl;
 

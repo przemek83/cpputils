@@ -3,7 +3,7 @@
 #include <memory>
 #include <string>
 
-#include "cpputils/cpputils_global.h"
+#include "cpputils/dll.h"
 
 class TimerImpl;
 
