@@ -43,7 +43,7 @@ From this point onwards, it should be possible to use `cpputils` as a link libra
 ```
 target_link_libraries(${PROJECT_NAME} cpputils)
 ```
-Check the examples subproject and my other project named `data-explorer` for usage examples.
+Check the `examples` subproject and my other project named `data-explorer` for usage examples.
 
 ## Logger
 
