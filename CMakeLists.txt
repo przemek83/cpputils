@@ -53,7 +53,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 
 configure_file(${PROJECT_NAME}.pc.in ${PROJECT_NAME}.pc @ONLY)
 
-target_compile_definitions(${PROJECT_NAME} PRIVATE CPPUTILS_LIBRARY)
+target_compile_definitions(${PROJECT_NAME} PRIVATE CPPUTILS_BUILD_LIB)
 
 install(TARGETS ${PROJECT_NAME} 
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
