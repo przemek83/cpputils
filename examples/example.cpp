@@ -1,9 +1,9 @@
 #include <stdlib.h>
 #include <iostream>
 
-#include "cpputils/Logger.h"
-#include "cpputils/StreamEater.h"
-#include "cpputils/Timer.h"
+#include <cpputils/Logger.h>
+#include <cpputils/StreamEater.h>
+#include <cpputils/Timer.h>
 
 int main(int argc, char* argv[])
 {
